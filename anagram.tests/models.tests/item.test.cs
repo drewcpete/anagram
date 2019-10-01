@@ -44,13 +44,15 @@ namespace Anagram.TestTools
         public void CompareArray_ComparesSortedArrays_True()
         {
             Item newItem = new Item("bread");
-
+            List<string> correctList = new List<string> {"beard", "bread", "derab"};
+            
             newItem.gatherInput("beard");
- 
-            Console.WriteLine("test" + newItem.Word + " " + Item.wordsCompare[0]);
-            bool result = newItem.CompareArrays();     
+            newItem.gatherInput("bread");
+            newItem.gatherInput("derab");
+
+            var result = newItem.CompareArrays();     
                 
-            Assert.IsTrue(result);
+            CollectionAssert.AreEqual(result, correctList);
         }
 
         [TestMethod]
@@ -61,6 +63,25 @@ namespace Anagram.TestTools
             test = newItem.gatherInput("mustache");
             List<string> testList = new List<string>{"beard", "mustache"};
             CollectionAssert.AreEqual(testList, test);
+        }
+
+        [TestMethod]
+        public void Partial_CheckPartial_String()
+        {
+            Item newItem = new Item("bread");
+
+            List<string> correctList = new List<string> {"ear", "drap", "bar"};
+            
+            newItem.gatherInput("ear");
+            newItem.gatherInput("drap");
+            newItem.gatherInput("super");
+            newItem.gatherInput("bar");
+
+
+            var result = newItem.CheckPartial();
+
+            CollectionAssert.AreEqual(result, correctList);
+
         }
 
     }
