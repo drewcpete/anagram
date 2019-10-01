@@ -22,15 +22,6 @@ namespace Anagram.TestTools
             Assert.AreEqual (typeof (Item), newItem.GetType ());
         }
 
-        // [TestMethod]
-        // public void CharArray_ReturnArray_Array()
-        // {
-        //     Item newItem = new Item ("drab");
-        //     newItem.StringToArray();
-        //     char[] correctArray = {'d', 'r', 'a', 'b'};           
-        //     CollectionAssert.AreEqual(newItem.WordArray, correctArray);
-
-        // }
         [TestMethod]
         public void SortArray_SortsArrayAlphabetically_Array()
         {
@@ -48,6 +39,7 @@ namespace Anagram.TestTools
             
             newItem.gatherInput("beard");
             newItem.gatherInput("bread");
+            newItem.gatherInput("super");
             newItem.gatherInput("derab");
 
             var result = newItem.CompareArrays();     
